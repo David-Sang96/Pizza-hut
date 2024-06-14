@@ -1,9 +1,27 @@
 /* eslint-disable react/prop-types */
+import { useDispatch, useSelector } from "react-redux";
+import { addItem } from "../../store/slices/cartSlice";
 import Button from "../../ui/Button";
 import { formatCurrency } from "../../utils/helpers";
 
 function MenuItem({ pizza }) {
   const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
+  const cart = useSelector((store) => store.cart.cart);
+  const dispatch = useDispatch();
+
+  const handleAddToCart = () => {
+    const existed = cart.find((item) => item.pizzaId === id);
+    if (existed) return alert("Already selected");
+    const newItem = {
+      pizzaId: id,
+      name,
+      quantity: 1,
+      unitPrice,
+      totalPrice: unitPrice * 1,
+    };
+
+    dispatch(addItem(newItem));
+  };
 
   return (
     <li className="flex gap-4 py-2">
@@ -25,7 +43,11 @@ function MenuItem({ pizza }) {
               Sold out
             </p>
           )}
-          <Button size="small">Add to cart</Button>
+          {!soldOut && (
+            <Button size="small" onClick={handleAddToCart}>
+              Add to cart
+            </Button>
+          )}
         </div>
       </div>
     </li>
