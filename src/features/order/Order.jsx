@@ -3,6 +3,7 @@
 
 import { useLoaderData } from "react-router-dom";
 import { getOrder } from "../../services/apiRestaurant";
+import Button from "../../ui/Button";
 import {
   calcMinutesLeft,
   formatCurrency,
@@ -71,6 +72,14 @@ function Order() {
         <p className="font-bold">
           To pay on delivery: {formatCurrency(orderPrice + priorityPrice)}
         </p>
+      </div>
+      <div className="flex justify-end gap-4">
+        <Button size={"primary"} to={"/"}>
+          Home
+        </Button>
+        <Button size={"primary"} to={"/menu"}>
+          Order Again
+        </Button>
       </div>
     </div>
   );
