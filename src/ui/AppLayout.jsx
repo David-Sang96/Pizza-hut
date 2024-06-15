@@ -10,23 +10,27 @@ const AppLayout = () => {
   const isLoading = navigation.state === "loading";
 
   return (
-    <SwitchTransition>
-      <CSSTransition key={location.pathname} timeout={200} classNames={"fade"}>
-        <div className="grid h-screen grid-rows-[auto_1fr_auto]">
-          {isLoading && <Loader />}
+    <div className="grid h-screen grid-rows-[auto_1fr_auto]">
+      {isLoading && <Loader />}
 
-          <Header />
+      <Header />
 
+      <SwitchTransition>
+        <CSSTransition
+          key={location.pathname}
+          timeout={200}
+          classNames={"fade"}
+        >
           <div className="overflow-scroll">
             <main className="mx-auto max-w-3xl">
               <Outlet />
             </main>
           </div>
+        </CSSTransition>
+      </SwitchTransition>
 
-          <CartOverview />
-        </div>
-      </CSSTransition>
-    </SwitchTransition>
+      <CartOverview />
+    </div>
   );
 };
 
