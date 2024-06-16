@@ -121,7 +121,7 @@ function CreateOrder() {
 
         <div className="mb-12 flex items-center gap-5">
           <input
-            className="h-6 w-6 accent-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400 focus:ring-offset-2"
+            className="h-4 w-4 accent-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400 focus:ring-offset-2 sm:h-6 sm:w-6"
             type="checkbox"
             name="priority"
             id="priority"
@@ -129,7 +129,7 @@ function CreateOrder() {
             onChange={(e) => setWithPriority(e.target.checked)}
           />
           <label htmlFor="priority" className="font-medium">
-            Want to yo give your order priority?
+            Want to give your order priority?
           </label>
         </div>
 
@@ -154,8 +154,6 @@ export const action = async ({ request }) => {
     cart: JSON.parse(data.cart),
     priority: data.priority === "true",
   };
-
-  console.log(order);
 
   const errors = {};
   if (!isValidPhone(order.phone))

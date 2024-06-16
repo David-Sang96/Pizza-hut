@@ -8,9 +8,11 @@ function Home() {
   const dispatch = useDispatch();
 
   return (
-    <div className="my-10 px-4 text-center sm:my-16">
-      <h1 className="mb-8 text-xl font-semibold md:text-3xl">
-        The best pizza.
+    <div className="my-20 px-4 text-center sm:my-16">
+      <h1 className="mb-8 text-xl font-semibold md:text-2xl">
+        <span className="block text-3xl md:text-[2.5rem] md:leading-10">
+          The best pizza.
+        </span>
         <br />
         <span className="text-yellow-500">
           Straight out of the oven, straight to you.

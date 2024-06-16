@@ -12,7 +12,7 @@ if (import.meta.env.VITE_MODE === "production") {
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-    <PersistGate persistor={persistor}>
+    <PersistGate persistor={persistor} loading={null}>
       <App />
     </PersistGate>
   </Provider>,

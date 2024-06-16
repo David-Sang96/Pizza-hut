@@ -21,7 +21,7 @@ const AppLayout = () => {
           timeout={200}
           classNames={"fade"}
         >
-          <div className="overflow-scroll">
+          <div className="scrollbar-thin scrollbar-webkit overflow-y-auto">
             <main className="mx-auto max-w-3xl">
               <Outlet />
             </main>
